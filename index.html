@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediSmart Prototype</title>
+    <!-- Basic Auth Check -->
+    <script>
+        if (!sessionStorage.getItem('isLoggedIn')) {
+            window.location.href = 'login.html';
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/beds.css">
+    <link rel="stylesheet" href="css/ambulance.css">
+    <link rel="stylesheet" href="css/patients.css">
+    <link rel="stylesheet" href="css/tests.css">
+    <link rel="stylesheet" href="css/analytics.css">
+    <!-- Ionicons for modern SVG icons -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+
+<body class="dark-theme">
+    <div class="app-container glass-panel">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <ion-icon name="medical" class="brand-icon pulse-red"></ion-icon>
+                <h2>MediSmart</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active" data-view="dashboard">
+                    <ion-icon name="grid-outline"></ion-icon> Dashboard
+                </a>
+                <a href="#" class="nav-item" data-view="beds">
+                    <ion-icon name="bed-outline"></ion-icon> Bed & Room
+                </a>
+                <a href="#" class="nav-item" data-view="ambulance">
+                    <ion-icon name="car-sport-outline"></ion-icon> Ambulance Tracker
+                </a>
+                <a href="#" class="nav-item" data-view="patients">
+                    <ion-icon name="people-outline"></ion-icon> Patients
+                </a>
+                <a href="#" class="nav-item" data-view="tests">
+                    <ion-icon name="flask-outline"></ion-icon> Medical Tests
+                </a>
+                <a href="#" class="nav-item" data-view="resources">
+                    <ion-icon name="medkit-outline"></ion-icon> Resources & Staff
+                </a>
+                <a href="#" class="nav-item" data-view="analytics">
+                    <ion-icon name="bar-chart-outline"></ion-icon> Analytics
+                </a>
+            </nav>
+        </aside>
+
+        <div class="main-wrapper">
+            <header class="top-header">
+                <div class="search-bar">
+                    <ion-icon name="search-outline"></ion-icon>
+                    <input type="text" placeholder="Search patients, doctors... (mock)">
+                </div>
+                <div class="header-actions">
+                    <div class="notification-wrapper" id="theme-toggle" style="margin-right: 15px;" title="Toggle Mood">
+                        <ion-icon name="moon-outline" class="bell-icon" id="theme-icon"></ion-icon>
+                    </div>
+                    <div class="notification-wrapper" id="notification-btn" style="cursor: pointer;"
+                        title="Notifications">
+                        <ion-icon name="notifications-outline" class="bell-icon"></ion-icon>
+                        <span class="badge" id="notification-badge">3</span>
+                    </div>
+                    <div class="clock" id="live-clock">--:--:--</div>
+                    <div class="user-profile">
+                        <div class="avatar">A</div>
+                        <div class="user-info">
+                            <span class="name">Admin Doe</span>
+                            <span class="role">Super Admin</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <main class="content-area" id="app-content">
+                <!-- Dynamic views will be injected here -->
+            </main>
+        </div>
+    </div>
+
+    <!-- AI Voice Assistant Widget -->
+    <div class="ai-assistant-widget" id="ai-assistant">
+        <div class="ai-pulse-ring"></div>
+        <button class="ai-btn" id="ai-btn" title="AI Voice Assistant">
+            <ion-icon name="mic-outline"></ion-icon>
+        </button>
+        <div class="ai-tooltip" id="ai-tooltip">MediSmart AI: Listening...</div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/data.js"></script>
+    <script src="js/views/dashboard.js"></script>
+    <script src="js/views/beds.js"></script>
+    <script src="js/views/ambulance.js"></script>
+    <script src="js/views/patients.js"></script>
+    <script src="js/views/tests.js"></script>
+
+    <script src="js/views/analytics.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
